@@ -67,7 +67,7 @@ There exists several methods to measure network modularity, some of which rely
 on the optimization of a given criterion
 \cite{newman_modularity_2006,zhang_optimization_2008}, label propagation
 \cite{barber_modularity_2007}, or combination of these approaches
-\cite{liu_community_2010}. These methods return two elements. The first is a
+\cite{liu_community_2010,marquitti_modular:_2013}. These methods return two elements. The first is a
 value of modularity for the networks, most often within the 0\,--\,1 interval.
 Each method has often a threshold value, above which a network is considered
 to be modular. Increasing values reflect and increasingly modular structure.
@@ -78,8 +78,8 @@ Recently, \textcite{thebault_identifying_2012} showed that different measures
 of modularity tailored to presence/absence matrices (\emph{i.e.} networks in
 which links have no weight), gave roughly equal estimates of the significance
 of modularity, but differed in the community partition they returned
-(\emph{i.e.} the identity of nodes composing each module varied). In this
-situation, one might look for a way to choose which community partition should
+(\emph{i.e.} the identity of nodes composing each module varied). In such
+situations, one might look for a way to choose which community partition should
 be used. As the criterion that is optimized by each method is different, one
 possible way to compare the different community partitions is to use an
 \emph{a posteriori} measure to quantify modularity, which can be applied to a
