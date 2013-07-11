@@ -172,11 +172,13 @@ modularity $Q_R'$, and its modularity $Q$ (using the \textcite{newman_finding_20
 measure).
 
 For each network, I compared the values of $Q$ and $Q_R'$ on the empirical
-networks to their random estimate using a network null model. The null model
-is defined as follows. For each node $n$ of the network, I measured its degree
-$d_n$, its generality (number of successors) $g_n$, and its vulnerability
-(number of predecessors) $v_n$. In each random network, for each pair of nodes
-$(i,j)$, the probability that $i$ interacts with $j$ is given by
+networks to their random estimate using a network null model. The null model is
+defined as follows. For each node $n$ of the network, I measured its degree
+$d_n$, its number of successors(the number of node it links to, or generality
+in ecological terms, as \emph{per} \cite{schoener_food_1989}) $g_n$, and its
+number of predecessors (the number of nodes that link to it, or vulnerability)
+$v_n$. In each random network, for each pair of nodes $(i,j)$, the probability
+that $i$ interacts with $j$ is given by
 
 \begin{equation}
 	P(i\rightarrow j) = \frac{1}{2}\left(\frac{g_i}{d_i}+\frac{v_j}{d_j}\right),
