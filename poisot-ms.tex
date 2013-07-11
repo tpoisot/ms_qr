@@ -13,10 +13,10 @@
 \usepackage{tikz, tkz-graph}
 \usepackage{pgfplots}
 \pgfplotsset{
-	width = 7cm,
-	height = 6cm,
-    cycle list name = black white,
-    tick align = outside
+width = 7cm,
+height = 6cm,
+cycle list name = black white,
+tick align = outside
 }
 
 \usepackage{setspace}
@@ -108,8 +108,8 @@ between nodes belonging to the same module. For $E$ edges in a network, if $W$
 of them are established between members of the same module, then
 
 \begin{equation}
-	Q_R = \frac{W}{E} .
- 	\label{e:qr}
+Q_R = \frac{W}{E} .
+\label{e:qr}
 \end{equation} 
 
 When there are no between-module links, then $W = E$ and $Q_R$ takes the
@@ -119,8 +119,8 @@ of 1/2. To express the \emph{realized modularity} as a value between 0 and 1,
 it is expressed as:
 
 \begin{equation}
-	Q_R' = 2\times Q_R - 1 .
-	\label{e:tqr}
+Q_R' = 2\times Q_R - 1 .
+\label{e:tqr}
 \end{equation}
 
 The main advantage of $Q_R$ is that it is agnostic with regard to the measure
@@ -130,14 +130,18 @@ assigned to modules, which can be arbitrary), as it acts \emph{a posteriori},
 used to select the community detection method maximizing modularity. This
 measure works on most type of networks, as it makes no difference if links are
 directional, or if the networks is bipartite/unipartite. An illustration of
-this measure is given in Figure~\ref{f:illu}.
+this measure is given in Figure~\ref{f:illu}. This measure is purposefully
+simple, (i) so that it makes no assumption about what modularity is, or how it
+should be optimized, and (ii) because it is not meant to be used to optimize
+modularity, but to either compare the outcome of different methods, or present
+the value of modularity in a way that is straigthforward to interpretate.
 
 \begin{figure}[tb]
-	\begin{center}
-		\input{illustr.tex}
-	\end{center}
-	\caption{A cartoon depiction of a modular network with links between modules. Nodes of the same modules are identified by different colors. This network has a modularity (Louvain method) of $Q = 0.527$. Out of the 36 interactions, 31 are established within modules, and 5 between modules. This gives a $Q_R$ value of 0.86, and $Q_R' = 0.72$.}
-	\label{f:illu}
+\begin{center}
+\input{illustr.tex}
+\end{center}
+\caption{A cartoon depiction of a modular network with links between modules. Nodes of the same modules are identified by different colors. This network has a modularity (Louvain method) of $Q = 0.527$. Out of the 36 interactions, 31 are established within modules, and 5 between modules. This gives a $Q_R$ value of 0.86, and $Q_R' = 0.72$.}
+\label{f:illu}
 \end{figure}
 
 A python implementation of this measure, using the \texttt{networkx} package,
@@ -175,17 +179,20 @@ Louvain method, I recorded its realized modularity $Q_R'$, and its modularity
 $Q$ (using the \textcite{newman_finding_2004} measure).
 
 For each network, I compared the values of $Q$ and $Q_R'$ on the empirical
-networks to their random estimate using a network null model. The null model is
-defined as follows. For each node $n$ of the network, I measured its degree
-$d_n$, its number of successors(the number of node it links to, or generality
-in ecological terms, as \emph{per} \cite{schoener_food_1989}) $g_n$, and its
-number of predecessors (the number of nodes that link to it, or vulnerability)
-$v_n$. In each random network, for each pair of nodes $(i,j)$, the probability
-that $i$ interacts with $j$ is given by
+networks to their random estimate using a network null model. Because random
+networks will by chance display a modular (among other) structure, it is
+important to confront the empirical measures of $Q$ and $Q'_R$ to their random
+expectations. The null model is defined as follows. For each node $n$ of the
+network, I measured its degree $d_n$, its number of successors(the number of
+node it links to, or generality in ecological terms, as \emph{per}
+\cite{schoener_food_1989}) $g_n$, and its number of predecessors (the number of
+nodes that link to it, or vulnerability) $v_n$. In each random network, for
+each pair of nodes $(i,j)$, the probability that $i$ interacts with $j$ is
+given by
 
 \begin{equation}
-	P(i\rightarrow j) = \frac{1}{2}\left(\frac{g_i}{d_i}+\frac{v_j}{d_j}\right),
-	\label{e:null}
+P(i\rightarrow j) = \frac{1}{2}\left(\frac{g_i}{d_i}+\frac{v_j}{d_j}\right),
+\label{e:null}
 \end{equation}
 
 \noindent and conversely for $P(jrightarrow i)$. This null model allowed the generation
@@ -202,20 +209,20 @@ different than expected by chance.
 \subsection{Results}
 
 \begin{figure}[tbp]
-	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-			xlabel = $Q$,
-			ylabel = $Q_R'$,
-			xmin = 0,
-			xmax = 1]
-				\draw[thick] (axis cs:0,0) to (axis cs:1,0);
-				\addplot+[only marks] table[x=q,y=qr] {analyses/results.dat};
-			\end{axis}
-		\end{tikzpicture}		
-	\end{center}
-	\caption{Relationship between the modularity of the best partition using the Louvain method and the \emph{a posteriori} realized modularity. There exists a strong, positive relationship between the two variables. Worth noting is that fact that, for some networks, the best partition resulted in \emph{negative} versions of $Q_R'$, \emph{i.e.} there were more interactions between than within modules. Each dot correspond to a network.}
-	\label{f:qqr}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel = $Q$,
+ylabel = $Q_R'$,
+xmin = 0,
+xmax = 1]
+\draw[thick] (axis cs:0,0) to (axis cs:1,0);
+\addplot+[only marks] table[x=q,y=qr] {analyses/results.dat};
+\end{axis}
+\end{tikzpicture}		
+\end{center}
+\caption{Relationship between the modularity of the best partition using the Louvain method and the \emph{a posteriori} realized modularity. There exists a strong, positive relationship between the two variables. Worth noting is that fact that, for some networks, the best partition resulted in \emph{negative} versions of $Q_R'$, \emph{i.e.} there were more interactions between than within modules. Each dot correspond to a network.}
+\label{f:qqr}
 \end{figure}
 
 There is a strong, positive relationship, between the values of $Q_R'$ and the
@@ -234,30 +241,30 @@ property, as it allows easy comparison with the $Q_R'$ values of networks with
 extremely different connectances.
 
 \begin{figure}[tbp]
-	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-			xlabel = Connectance,
-			ylabel = $Q$,
-			ymax = 1,
-			xmax = 0.5]
-				\node at (rel axis cs:0.07,0.93) {\sffamily \textbf{A}};
-				\addplot+[only marks] table[x=co,y=q] {analyses/results.dat};
-			\end{axis}
-		\end{tikzpicture}
-		\begin{tikzpicture}
-			\begin{axis}[
-			xlabel = Connectance,
-			ylabel = $Q_R'$,
-			ymax = 1,
-			xmax = 0.5]
-				\node at (rel axis cs:0.07,0.93) {\sffamily \textbf{B}};
-				\addplot+[only marks] table[x=co,y=qr] {analyses/results.dat};
-			\end{axis}
-		\end{tikzpicture}%		
-	\end{center}
-	\caption{Relationship between the two measures of modularity and network connectance. \textbf{A.} $Q$ is negatively affected by connectance, \emph{i.e.} densely connected networks are more likely not to be modular. \textbf{B.} $Q_R'$ is not affected by connectance, allowing to use it to compare different networks. Each dot correspond to a network.}
-	\label{f:co}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel = Connectance,
+ylabel = $Q$,
+ymax = 1,
+xmax = 0.5]
+\node at (rel axis cs:0.07,0.93) {\sffamily \textbf{A}};
+\addplot+[only marks] table[x=co,y=q] {analyses/results.dat};
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel = Connectance,
+ylabel = $Q_R'$,
+ymax = 1,
+xmax = 0.5]
+\node at (rel axis cs:0.07,0.93) {\sffamily \textbf{B}};
+\addplot+[only marks] table[x=co,y=qr] {analyses/results.dat};
+\end{axis}
+\end{tikzpicture}%		
+\end{center}
+\caption{Relationship between the two measures of modularity and network connectance. \textbf{A.} $Q$ is negatively affected by connectance, \emph{i.e.} densely connected networks are more likely not to be modular. \textbf{B.} $Q_R'$ is not affected by connectance, allowing to use it to compare different networks. Each dot correspond to a network.}
+\label{f:co}
 \end{figure}
 
 There is a linear relationship between the deviation from random expectation
@@ -277,21 +284,21 @@ will help further clarify the importance of species functional role on
 ecological network modularity.
 
 \begin{figure}[tbp]
-	\begin{center}
-		\begin{tikzpicture}
-			\begin{axis}[
-			xlabel = $\Delta Q$,
-			ylabel = $\Delta Q_R'$,
-			xmin = -0.25, xmax = 0.25,
-			ymin = -0.6, ymax = 1.2]
-				\draw[fill=red!20!white] (axis cs:-0.25,-0.6) rectangle (axis cs:0,0);
-				\draw[fill=blue!20!white] (axis cs:0,0) rectangle (axis cs:0.25,1.2);
-				\addplot+[only marks] table[x=dq,y=dqr] {analyses/results.dat};
-			\end{axis}
-		\end{tikzpicture}		
-	\end{center}
-	\caption{Linear relationship between the deviation from random expectation in $Q$ and $Q_R'$. Networks in the red area are detected as being less modular than expected both by $Q_R'$ and $Q$, while networks in the blue area are detected as being more modular. Although the agreement between the two measures is good (see main text for statistics), some networks are detected as having a higher than expected realized modularity $Q_R'$, despite a lower than expected modularity $Q$. Each dot correspond to a network.}
-	\label{f:dnull}
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+xlabel = $\Delta Q$,
+ylabel = $\Delta Q_R'$,
+xmin = -0.25, xmax = 0.25,
+ymin = -0.6, ymax = 1.2]
+\draw[fill=red!20!white] (axis cs:-0.25,-0.6) rectangle (axis cs:0,0);
+\draw[fill=blue!20!white] (axis cs:0,0) rectangle (axis cs:0.25,1.2);
+\addplot+[only marks] table[x=dq,y=dqr] {analyses/results.dat};
+\end{axis}
+\end{tikzpicture}		
+\end{center}
+\caption{Linear relationship between the deviation from random expectation in $Q$ and $Q_R'$. Networks in the red area are detected as being less modular than expected both by $Q_R'$ and $Q$, while networks in the blue area are detected as being more modular. Although the agreement between the two measures is good (see main text for statistics), some networks are detected as having a higher than expected realized modularity $Q_R'$, despite a lower than expected modularity $Q$. Each dot correspond to a network.}
+\label{f:dnull}
 \end{figure}
 
 \section{Conclusions}
