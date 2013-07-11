@@ -166,10 +166,10 @@ steps: first it optimizes modularity \emph{locally}, through clustering of
 neighboring nodes. These clusters are, in the second steps, aggregated
 together, until modularity ceases to increase. This method is known to give
 values of modularity comparable to what is found using \emph{e.g.} simulated
-annealing, and has been observed to give modules have a functional relevance.
-Once the partition is returned by the Louvain method, I recorded its realized
-modularity $Q_R'$, and its modularity $Q$ (using the \textcite{newman_finding_2004}
-measure).
+annealing, and has been observed to give modules that have a functional
+relevance \cite{blonder_fast_2000}.  Once the partition is returned by the
+Louvain method, I recorded its realized modularity $Q_R'$, and its modularity
+$Q$ (using the \textcite{newman_finding_2004} measure).
 
 For each network, I compared the values of $Q$ and $Q_R'$ on the empirical
 networks to their random estimate using a network null model. The null model is
