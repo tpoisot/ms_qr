@@ -226,19 +226,23 @@ xmax = 1]
 \end{figure}
 
 There is a strong, positive relationship, between the values of $Q_R'$ and the
-values of $Q$ (Pearsons's product-moment correlation coefficient, as implemented in \texttt{R 2.15} \cite{team_r:_2008}, $\rho =
-0.64$, 288 d.f., $p < 10^{-6}$), \emph{i.e.} networks for which a high
-modularity is detected tend to have relatively few between-module links
-(Figure~\ref{f:qqr}). It is worth noting that some $Q_R'$ values were negative:
-in some cases, the best community division resulted in more interactions
-between than within modules. This result highlights why using an \emph{a
-posteriori} measure is useful: other measures of modularity do not reveal the
-fact that there were more interactions between than within modules. $Q$ and
-$Q_R'$ have different relationships with connectance (Figure~\ref{f:co}).
-Increased connectance values resulted in lower modularity ($\rho = -0.61$, 288
-d.f., $p < 10^{-6}$), but had no impact on $Q_R'$. This is a desirable
-property, as it allows easy comparison with the $Q_R'$ values of networks with
-extremely different connectances.
+values of $Q$ (Pearsons's product-moment correlation coefficient, as
+implemented in \texttt{R 2.15} \cite{team_r:_2008}, $\rho = 0.64$, 288 d.f., $p
+< 10^{-6}$), \emph{i.e.} networks for which a high modularity is detected tend
+to have relatively few between-module links (Figure~\ref{f:qqr}). It is worth
+noting that some $Q_R'$ values were negative: in some cases, the best community
+division resulted in more interactions between than within modules. This result
+highlights why using an \emph{a posteriori} measure is useful: other measures
+of modularity do not reveal the fact that there were more interactions between
+than within modules. In the dataset examined, most of the networks with a
+modularity lower than 0.2 had a negative realized modularities. This result
+suggests that discussing the modularity of such networks makes little sense, as
+their modules are not more densely linked than other random collections of
+nodes within the graph. $Q$ and $Q_R'$ have different relationships with
+connectance (Figure~\ref{f:co}).  Increased connectance values resulted in
+lower modularity ($\rho = -0.61$, 288 d.f., $p < 10^{-6}$), but had no impact
+on $Q_R'$. This is a desirable property, as it allows easy comparison with the
+$Q_R'$ values of networks with extremely different connectances.
 
 \begin{figure}[tbp]
 \begin{center}
