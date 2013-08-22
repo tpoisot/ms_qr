@@ -1,0 +1,68 @@
+\definecolor{COLOR0}{rgb}{0.8941176470588236,0.17647058823529413,0.17647058823529413}
+\definecolor{COLOR1}{rgb}{0.17647058823529413,0.8941176470588236,0.17647058823529413}
+\definecolor{COLOR2}{rgb}{0.17647058823529413,0.17647058823529413,0.8941176470588236}
+\definecolor{COLOR3}{rgb}{0.0,0.0,0.0}
+\pgfdeclarelayer{background}
+\pgfdeclarelayer{foreground}
+\pgfsetlayers{background,main,foreground}
+\begin{tikzpicture}[scale=0.2]
+\node at (4.4348946,1.7752205) [circle, line width=1, fill=COLOR0,  inner sep=0pt, minimum size = 15pt,] (1) {};
+\node at (0.5787612,0) [circle, line width=1, fill=COLOR0,  inner sep=0pt, minimum size = 15pt,] (2) {};
+\node at (1.1898844,4.1412354) [circle, line width=1, fill=COLOR0,  inner sep=0pt, minimum size = 15pt,] (3) {};
+\node at (-3.9965492,4.022908) [circle, line width=1, fill=COLOR0,  inner sep=0pt, minimum size = 15pt,] (4) {};
+\node at (-1.46605,9.0563972) [circle, line width=1, fill=COLOR0,  inner sep=0pt, minimum size = 15pt,] (5) {};
+\node at (5.0572659,9.5155794) [circle, line width=1, fill=COLOR0,  inner sep=0pt, minimum size = 15pt,] (6) {};
+\node at (-8.8685646,13.9302869) [circle, line width=1, fill=COLOR1,  inner sep=0pt, minimum size = 15pt,] (7) {};
+\node at (-13.0699387,10.7953665) [circle, line width=1, fill=COLOR1,  inner sep=0pt, minimum size = 15pt,] (8) {};
+\node at (-13.9869095,16.1683201) [circle, line width=1, fill=COLOR1,  inner sep=0pt, minimum size = 15pt,] (9) {};
+\node at (-17.889743,15.2090019) [circle, line width=1, fill=COLOR1,  inner sep=0pt, minimum size = 15pt,] (10) {};
+\node at (-16.3414551,19.3981277) [circle, line width=1, fill=COLOR1,  inner sep=0pt, minimum size = 15pt,] (11) {};
+\node at (-9.6989677,19.8633057) [circle, line width=1, fill=COLOR1,  inner sep=0pt, minimum size = 15pt,] (12) {};
+\node at (12.1416794,16.3403877) [circle, line width=1, fill=COLOR2,  inner sep=0pt, minimum size = 15pt,] (13) {};
+\node at (12.7044243,21.8733261) [circle, line width=1, fill=COLOR2,  inner sep=0pt, minimum size = 15pt,] (14) {};
+\node at (7.2612694,17.2345871) [circle, line width=1, fill=COLOR2,  inner sep=0pt, minimum size = 15pt,] (15) {};
+\node at (2.4059761,22.491687) [circle, line width=1, fill=COLOR2,  inner sep=0pt, minimum size = 15pt,] (16) {};
+\node at (14.8854568,25.5035843) [circle, line width=1, fill=COLOR2,  inner sep=0pt, minimum size = 15pt,] (17) {};
+\node at (16.6169861,21.3912292) [circle, line width=1, fill=COLOR2,  inner sep=0pt, minimum size = 15pt,] (18) {};
+\node at (9.9692177,26.0839203) [circle, line width=1, fill=COLOR2,  inner sep=0pt, minimum size = 15pt,] (19) {};
+\begin{pgfonlayer}{background}
+\tikzset{EdgeStyle/.style = {->,shorten >=1pt,>=stealth, bend right=1}}
+\tikzset{EdgeStyle/.style = {-, shorten >=1pt, >=stealth, bend right=1, line width=0.5, color=COLOR3}}
+\Edge (1)(6)
+\Edge (2)(1)
+\Edge (2)(4)
+\Edge (3)(1)
+\Edge (3)(2)
+\Edge (3)(6)
+\Edge (4)(3)
+\Edge (4)(5)
+\Edge (4)(8)
+\Edge (5)(3)
+\Edge (5)(7)
+\Edge (6)(5)
+\Edge (6)(13)
+\Edge (6)(15)
+\Edge (8)(7)
+\Edge (8)(9)
+\Edge (9)(7)
+\Edge (9)(10)
+\Edge (9)(11)
+\Edge (9)(12)
+\Edge (10)(8)
+\Edge (11)(10)
+\Edge (12)(7)
+\Edge (12)(11)
+\Edge (13)(14)
+\Edge (13)(18)
+\Edge (14)(17)
+\Edge (14)(18)
+\Edge (15)(13)
+\Edge (15)(14)
+\Edge (16)(12)
+\Edge (16)(15)
+\Edge (17)(19)
+\Edge (18)(17)
+\Edge (19)(14)
+\Edge (19)(16)
+\end{pgfonlayer}
+\end{tikzpicture}
