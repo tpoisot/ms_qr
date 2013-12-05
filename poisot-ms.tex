@@ -123,6 +123,12 @@ Q_R' = 2\times Q_R - 1 .
 \label{e:tqr}
 \end{equation}
 
+Note that $Q_R'$ will yield values in the $[0;1]$ interval only if there are
+more edges established \emph{within} than \emph{between} modules. Although if
+modules are determined at random, $Q_R'$ values are expected to be centered on
+0, it is expected that they will increase when modules are properly optimized
+(only as far as the network is modular).
+
 The main advantage of $Q_R$ is that it is agnostic with regard to the measure
 used to optimize modularity (and even to the method by which the nodes were
 assigned to modules, which can be arbitrary), as it acts \emph{a posteriori},
@@ -365,9 +371,10 @@ No competing interests were disclosed.
 TP is funded by a PBEEE-FQRNT post-doctoral scholarship, and thanks the EEC
 Canada Research Chair for providing computational support.
 
-\textbf{Acknowledgements:} Thanks are due to the maintainers and contributors of
-the free texttt{networkx}, texttt{scipy}, and texttt{numpy} packages used in
-this project, and to Scott Chamberlain for discussions.
+\textbf{Acknowledgements:} Thanks are due to the maintainers and
+contributors of the free \texttt{networkx}, \texttt{scipy}, \texttt{igraph}
+and \texttt{numpy} packages used in this project, and to Scott Chamberlain
+for discussions.
 
 \printbibliography
 
