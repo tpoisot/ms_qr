@@ -209,31 +209,33 @@ $Q$ (using the \textcite{newman_finding_2004} measure).
 
 For each network, I compared the values of $Q$ and $Q_R'$ on the empirical
 networks to their random estimate using a network null model. Because random
-networks will by chance display a modular (among other) structure, it is
-important to confront the empirical measures of $Q$ and $Q'_R$ to their random
-expectations. The null model is defined as follows. For each node $n$ of the
-network, I measured its degree $d_n$, its number of successors(the number of
-node it links to, or generality in ecological terms, as \emph{per}
-\cite{schoener_food_1989}) $g_n$, and its number of predecessors (the number of
-nodes that link to it, or vulnerability) $v_n$. In each random network, for
-each pair of nodes $(i,j)$, the probability that $i$ interacts with $j$ is
-given by
+networks will by chance (here meaning, as expected by networks having a
+given connectance and thus degree distribution, \textcite{poisot_when_2013})
+display a modular (among other) structure, it is important to confront the
+empirical measures of both $Q$ and $Q'_R$ to their random expectations. The
+null model is defined as follows. For each node $n$ of the network, I measured
+its degree $d_n$, its number of successors(the number of node it links to,
+or generality in ecological terms, as \emph{per} \cite{schoener_food_1989})
+$g_n$, and its number of predecessors (the number of nodes that link to it,
+or vulnerability) $v_n$. In each random network, for each pair of nodes
+$(i,j)$, the probability that $i$ interacts with $j$ is given by
 
 \begin{equation}
 P(i\rightarrow j) = \frac{1}{2}\left(\frac{g_i}{d_i}+\frac{v_j}{d_j}\right),
 \label{e:null}
 \end{equation}
 
-\noindent and conversely for $P(j \rightarrow i)$. This null model allowed the generation
-of pseudo-random networks through a Bernoulli process (in each replicate, the
-occurrence of a link is randomly determined), with the same connectance, and
-the same distribution of degrees, generality, and vulnerability, as the
-original one (these properties are also conserved at the \emph{node} level).
-For each of the 290 networks, 1000 pseudo-random replicates are generated. For
-each of them, the average value of $Q_R$ and $Q_R'$ are estimated along with
-their 90\% confidence interval. When the empirical value lies outside the
-confidence interval, it can be assumed that the modular structure of the network is
-different than expected by chance.
+\noindent and conversely for $P(j \rightarrow i)$. This null model allowed
+the generation of pseudo-random networks through a Bernoulli process (in
+each replicate, the occurrence of a link is randomly determined), with the
+same expected connectance, and the same expected distribution of degrees,
+generality, and vulnerability, as the original one (these properties are
+also conserved at the \emph{node} level).  For each of the 290 networks,
+1000 pseudo-random replicates are generated. For each of them, the average
+value of $Q_R$ and $Q_R'$ are estimated along with their 90\% confidence
+interval. When the empirical value lies outside the confidence interval,
+it can be assumed that the modular structure of the network is different
+than expected by chance.
 
 \subsection{Results}
 
