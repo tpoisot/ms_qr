@@ -38,16 +38,21 @@ tick align = outside
 
 \maketitle
 
-\begin{abstract} Measuring modularity is important to understand the structure
-of networks, and has an important number of real-world implications. Several
-measures exist to assess modularity, which when applied to the same network,
-can return both different modularity values and different module compositions.
-In this article, I propose an \emph{a posteriori} measure of modularity, which
-is simply defined as the ratio of interactions between members of the same
-modules \emph{vs.} members of different modules. I apply this measure to a
-large dataset of 290 ecological networks representing host--parasite (bipartite) and
-predator--prey (unipartite) interactions, to show how the results are easy to interpret,
-and can reveal new features about modularity.
+\begin{abstract}
+Measuring the modularity of networks, and how it deviates from random
+expectations, important to understand their structure and emerging
+properties. Several measures exist to assess modularity, which when applied to
+the same network, can return both different modularity values (\emph{i.e.}
+different estimates of how modular the network is) and different module
+compositions (\emph{i.e.} different groups of species forming said modules). In
+this article, I propose an \emph{a posteriori} measure of modularity, which is
+simply defined as the ratio of interactions established between members of the
+same modules \emph{vs.} members of different modules. I apply this measure
+to a large dataset of 290 ecological networks representing host--parasite
+(bipartite) and predator--prey (unipartite) interactions, to show how the
+results are easy to interpret and present especially to a broad audience
+not familiar with modularity analyses, but still can reveal new features
+about modularity and the ways to measure it.
 \end{abstract}
 
 \doublespacing\linenumbers
@@ -74,16 +79,18 @@ to be modular. Increasing values reflect and increasingly modular structure.
 The second element is a ``community partition'', \emph{i.e.} the attribution
 of each node to a module.
 
-Recently, \textcite{thebault_identifying_2012} showed that different measures
-of modularity tailored to presence/absence matrices (\emph{i.e.} networks in
-which links have no weight), gave roughly equal estimates of the significance
-of modularity, but differed in the community partition they returned
-(\emph{i.e.} the identity of nodes composing each module varied). In such
-situations, one might look for a way to choose which community partition should
-be used. As the criterion that is optimized by each method is different, one
-possible way to compare the different community partitions is to use an
+Recently, \textcite{thebault_identifying_2012} showed that different
+measures of modularity tailored to presence/absence matrices (\emph{i.e.}
+networks in which links have no weight), gave roughly equal estimates of
+the significance of modularity, but differed in the community partition they
+returned (\emph{i.e.} the identity of nodes composing each module varied). In
+such situations, one might look for a way to choose which community partition
+should be used. As the criterion that is optimized by each method is different,
+one possible way to compare the different community partitions is to use an
 \emph{a posteriori} measure to quantify modularity, which can be applied to a
-network regardless of the method used to obtain the community partition.
+network regardless of the method used to obtain the community partition. More
+importantly, this criterion should be \emph{different} than the one used to
+track the progress of the optimisation algorithm.
 
 An important feature of modular networks is the occurrence of interactions
 between nodes of different modules. They contribute to the propagation of
@@ -247,24 +254,25 @@ xmax = 1]
 \label{f:qqr}
 \end{figure}
 
-There is a strong, positive relationship, between the values of $Q_R'$ and the
-values of $Q$ (Pearsons's product-moment correlation coefficient, as
-implemented in \texttt{R 2.15} \cite{team_r:_2008}, $\rho = 0.64$, 288 d.f., $p
-< 10^{-6}$), \emph{i.e.} networks for which a high modularity is detected tend
-to have relatively few between-module links (Figure~\ref{f:qqr}). It is worth
-noting that some $Q_R'$ values were negative: in some cases, the best community
-division resulted in more interactions between than within modules. This result
-highlights why using an \emph{a posteriori} measure is useful: other measures
-of modularity do not reveal the fact that there were more interactions between
-than within modules. In the dataset examined, most of the networks with a
-modularity lower than 0.2 had a negative realized modularities. This result
-suggests that discussing the modularity of such networks makes little sense, as
-their modules are not more densely linked than other random collections of
-nodes within the graph. $Q$ and $Q_R'$ have different relationships with
-connectance (Figure~\ref{f:co}).  Increased connectance values resulted in
-lower modularity ($\rho = -0.61$, 288 d.f., $p < 10^{-6}$), but had no impact
-on $Q_R'$. This is a desirable property, as it allows easy comparison with the
-$Q_R'$ values of networks with extremely different connectances.
+There is a strong, positive relationship, between the values of $Q_R'$ and
+the values of $Q$ (Pearsons's product-moment correlation coefficient, as
+implemented in \texttt{R 2.15} \cite{team_r:_2008}, $\rho = 0.64$, 288 d.f.,
+$p < 10^{-6}$), \emph{i.e.} networks for which a high modularity is detected
+tend to have relatively few between-module links (Figure~\ref{f:qqr}). It
+is worth noting that some $Q_R'$ values were negative: in some cases, the
+best community division resulted in more interactions between than within
+modules. This result highlights why using an \emph{a posteriori} measure is
+useful: other measures of modularity do not reveal the fact that there were
+more interactions between than within modules. In the dataset examined,
+most of the networks with a modularity lower than 0.2 had a negative
+realized modularity. This result suggests that discussing the modularity
+of such networks makes little sense, as their modules are not more densely
+connected, within a module, than other random collections of nodes within
+the graph. $Q$ and $Q_R'$ have different relationships with connectance
+(Figure~\ref{f:co}). Increased connectance values resulted in lower modularity
+($\rho = -0.61$, 288 d.f., $p < 10^{-6}$), but had no impact on $Q_R'$. This
+is a desirable property, as it allows easy comparison with the $Q_R'$ values
+of networks with extremely different connectances.
 
 \begin{figure}[tbp]
 \begin{center}
@@ -293,23 +301,26 @@ xmax = 0.5]
 \label{f:co}
 \end{figure}
 
-There is a linear relationship between the deviation from random expectation of
-$Q$ and $Q_R'$ ($\rho = 0.78$, 288 d.f., $p < 10^{-6}$ --
-Figure~\ref{f:dnull}). The deviations (respectively $\Delta Q$ and $\Delta
-Q_R'$) are calculated as the empirical value, minus the average of the values
-on the networks generated by the null model. As an example, a $\Delta Q$ less
-than zero indicates that the empirical network is less modular than expected by
-chance. Confidence intervals for the average of the null models were typically
-very narrow (not represented in the figure to avoid cluttering -- see
-associated original dataset), probably owing to the fact that the null model is
-restrictive on the type of networks which are generated. It is worth noting
-that for some networks, the diagnostic of the null model analysis conflicted.
-In a vast majority of the situations, this corresponds to networks having a
-lower modularity than expected by chance, yet having a higher realized
-modularity (dots in the upper left corner of Fig. \ref{f:dnull}). Depending on
-whether the true modularity, or the realized modularity, is the most relevant
-metric of the processes studied, the interpretation of the null models for
-these networks will be different. 
+There is a linear relationship between the deviation from random
+expectation of $Q$ and $Q_R'$ ($\rho = 0.78$, 288 d.f., $p < 10^{-6}$
+-- Figure~\ref{f:dnull}). The deviations (respectively $\Delta Q$ and
+$\Delta Q_R'$) are calculated as the empirical value, minus the average
+of the values on the networks generated by the null model. As an example,
+a $\Delta Q$ less than zero indicates that the empirical network is less
+modular than expected by chance. Confidence intervals for the average of
+the null models were typically very narrow (not represented in the figure to
+avoid cluttering -- see associated original dataset), probably owing to the
+fact that the null model is restrictive on the type of networks which are
+generated. It is worth noting that for some networks, the diagnostic of the
+null model analysis conflicted.  In a vast majority of the situations, this
+corresponds to networks having a lower modularity than expected by chance,
+yet having a higher realized modularity (dots in the upper left corner of
+Fig. \ref{f:dnull}). In this type of situations, whereas one would usually
+conclude that the networks are not significantly modular, the identified
+modules are nonetheless more densely connected (internally) than they are
+with the rest of the network. Depending on whether the true modularity, or
+the realized modularity, is the most relevant metric of the processes studied,
+the interpretation of the null models for these networks will be different.
 
 \begin{figure}[tbp]
 \begin{center}
