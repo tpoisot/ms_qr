@@ -38,21 +38,22 @@ tick align = outside
 
 \maketitle
 
-\begin{abstract}
-Measuring the modularity of networks, and how it deviates from random
-expectations, important to understand their structure and emerging
-properties. Several measures exist to assess modularity, which when applied to
-the same network, can return both different modularity values (\emph{i.e.}
-different estimates of how modular the network is) and different module
-compositions (\emph{i.e.} different groups of species forming said modules). In
-this article, I propose an \emph{a posteriori} measure of modularity, which is
-simply defined as the ratio of interactions established between members of the
-same modules \emph{vs.} members of different modules. I apply this measure
-to a large dataset of 290 ecological networks representing host--parasite
-(bipartite) and predator--prey (unipartite) interactions, to show how the
-results are easy to interpret and present especially to a broad audience
-not familiar with modularity analyses, but still can reveal new features
-about modularity and the ways to measure it.
+\begin{abstract} Measuring the modularity of networks, and how it deviates
+from random expectations, important to understand their structure and
+emerging properties. Several measures exist to assess modularity, which when
+applied to the same network, can return both different modularity values
+(\emph{i.e.} different estimates of how modular the network is) and different
+module compositions (\emph{i.e.} different groups of species forming said
+modules). More importantly, as each optimization method uses a different
+optimization criterion, there is a need to have an \emph{a posteriori}
+measure serving as an equivalent of a goodness-of-fit. In this article, I
+propose such a measure of modularity, which is simply defined as the ratio
+of interactions established between members of the same modules \emph{vs.}
+members of different modules. I apply this measure to a large dataset of 290
+ecological networks representing host--parasite (bipartite) and predator--prey
+(unipartite) interactions, to show how the results are easy to interpret and
+present especially to a broad audience not familiar with modularity analyses,
+but still can reveal new features about modularity and the ways to measure it.
 \end{abstract}
 
 \doublespacing\linenumbers
@@ -85,12 +86,12 @@ networks in which links have no weight), gave roughly equal estimates of
 the significance of modularity, but differed in the community partition they
 returned (\emph{i.e.} the identity of nodes composing each module varied). In
 such situations, one might look for a way to choose which community partition
-should be used. As the criterion that is optimized by each method is different,
-one possible way to compare the different community partitions is to use an
-\emph{a posteriori} measure to quantify modularity, which can be applied to a
-network regardless of the method used to obtain the community partition. More
+should be used. The challenge is this situation is that the citeria used by
+each optimisation method cannot be meaningfully compared, and so there is a
+need for \emph{a posteriori} measurement of how strong the modular structure
+is, regardless of the method used to obtain the community partition. More
 importantly, this criterion should be \emph{different} than the one used to
-track the progress of the optimisation algorithm.
+track the progress of any optimisation algorithm.
 
 An important feature of modular networks is the occurrence of interactions
 between nodes of different modules. They contribute to the propagation of
@@ -139,15 +140,18 @@ modules are determined at random, $Q_R'$ values are expected to be centered on
 The main advantage of $Q_R$ is that it is agnostic with regard to the measure
 used to optimize modularity (and even to the method by which the nodes were
 assigned to modules, which can be arbitrary), as it acts \emph{a posteriori},
-\emph{i.e.} after nodes have been attributed to modules. It can therefore be
-used to select the community detection method maximizing modularity. This
-measure works on most type of networks, as it makes no difference if links are
-directional, or if the networks are bipartite/unipartite. An illustration of
-this measure is given in Figure~\ref{f:illu}. This measure is purposefully
-simple, (i) so that it makes no assumption about what modularity is, or how it
-should be optimized, and (ii) because it is not meant to be used to optimize
-modularity, but to either compare the outcome of different methods, or present
-the value of modularity in a way that is straigthforward to interpretate.
+\emph{i.e.} after nodes have been attributed to modules. Nonetheless, it
+assumes a simple yet functional definition of modularity: the fact that
+nodes interact more within than between modules. Given that measuring to
+which extent this is true, it can therefore be used to select the community
+detection method maximizing modularity. This measure works on most type
+of networks, as it makes no difference if links are directional, or if the
+networks are bipartite/unipartite. An illustration of this measure is given
+in Figure~\ref{f:illu}. This measure is purposefully simple, (i) so that it
+makes no assumption about what modularity is, or how it should be optimized,
+and (ii) because it is not meant to be used to optimize modularity, but to
+either compare the outcome of different methods, or present the value of
+modularity in a way that is straigthforward to interpretate.
 
 \begin{figure}[tb]
 \begin{center}
