@@ -145,13 +145,15 @@ assumes a simple yet functional definition of modularity: the fact that
 nodes interact more within than between modules. Given that measuring to
 which extent this is true, it can therefore be used to select the community
 detection method maximizing modularity. This measure works on most type
-of networks, as it makes no difference if links are directional, or if the
-networks are bipartite/unipartite. An illustration of this measure is given
-in Figure~\ref{f:illu}. This measure is purposefully simple, (i) so that it
-makes no assumption about what modularity is, or how it should be optimized,
-and (ii) because it is not meant to be used to optimize modularity, but to
-either compare the outcome of different methods, or present the value of
-modularity in a way that is straigthforward to interpretate.
+of networks, as it makes no difference if links are directional, or if
+the networks are bipartite/unipartite. An illustration of this measure
+is given in Figure~\ref{f:illu}. This measure is purposefully simple,
+(i) so that it makes only minimal assumptions about what modularity is
+(except for the fact that in a modular network, nodes interact more within
+than between modules), or how it should be optimized, and (ii) because it
+is not meant to be used to optimize modularity, but to either compare the
+outcome of different methods, or present the value of modularity in a way
+that is straigthforward to interpretate.
 
 \begin{figure}[tb]
 \begin{center}
